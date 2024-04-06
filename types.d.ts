@@ -20,6 +20,7 @@ export interface Comment {
 }
 
 export interface CommentMutation {
+  news_id: string;
   author: string;
   text: string;
 }
