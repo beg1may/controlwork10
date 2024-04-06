@@ -10,11 +10,16 @@ export interface NewMutation {
   title: string;
   content: string;
   img: string;
-  datetime: string;
 }
 
-export interface comment {
+export interface Comment {
   id: string;
-  id_new: string;
+  news_id: string;
   author: string;
+  text: string;
+}
+
+export interface CommentMutation {
+  author: string;
+  text: string;
 }
