@@ -1,6 +1,6 @@
 import {promises as fs} from "fs";
 import crypto from 'crypto';
-import {CommentMutation, New, NewMutation} from './types';
+import {New, NewMutation} from './types';
 
 const filename = './db.json';
 let data: New[] = [];
@@ -57,6 +57,13 @@ const fileDb = {
       console.error("Error by ID:", error);
       throw error;
     }
+  },
+
+  async addComment(comment: Comment) {
+    comment.id = crypto.randomUUID().toString();
+    this.db.comments.push(comment);
+    await this.save();
+    return comment;
   },
 
 }
